@@ -17,12 +17,16 @@ AC01:
 • Página da tela inicial • Se conteúdo estático, pronta para ser exibida em S3
 • Se conteúdo dinâmico, testado em servidor WEB sobre EC2
 
+
 AC02:
+
 • Front end
 • Back end com Mock responses sem autenticação de usuários
 
 AC03:
+
 • Back end sem autenticação de usuários
 
 AC04:
+
 • Autenticação de usuários
