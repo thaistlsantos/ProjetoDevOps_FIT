@@ -9,6 +9,7 @@ Um Serviço de Chat entre pares de usuários implementado em plataforma de nuvem
 #### Fases:
 
 AC01:
+
 • Nome oficial do projeto
 • Apresentação dos membros do grupo
 • Criação do git
