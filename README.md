@@ -30,3 +30,15 @@ Um Serviço de Chat entre pares de usuários implementado em plataforma de nuvem
 #### AC04:
 
 * Autenticação de usuários
+
+
+
+
+### Integrantes: 
+
+- Beatriz Garcia
+- Douglas Costa
+- Igor Frutuoso
+- Samuel Bernardo
+- Thaís Santos
+- Vinicius Reis
