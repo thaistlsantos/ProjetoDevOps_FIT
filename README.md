@@ -1,12 +1,12 @@
 # ProjetoDevOps_FIT
 
-Projeto do 3º Semestre
+Projeto do 3º Semestre :computer:
 
-Descrição do projeto: 
+### Descrição do projeto: 
 
 Um Serviço de Chat entre pares de usuários implementado em plataforma de nuvem
 
-Fases:
+#### Fases:
 
 AC01:
 • Nome oficial do projeto
