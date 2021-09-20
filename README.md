@@ -10,8 +10,9 @@ Um Serviço de Chat entre pares de usuários implementado em plataforma de nuvem
 
 #### AC01:
 
-* Nome oficial do projeto: CHATPROG
+#### Nome oficial do projeto: CHATPROG
 * Apresentação dos membros do grupo
+
 - Beatriz Garcia
 - Douglas Costa
 - Igor Frutuoso
@@ -19,13 +20,13 @@ Um Serviço de Chat entre pares de usuários implementado em plataforma de nuvem
 - Thaís Santos
 - Vinicius Reis
 
-* Criação do git: 
+#### Criação do git: 
 https://github.com/thaistlsantos/ProjetoDevOps_FIT
 
-* Escolhas de linguagem e plataforma a serem usadas
+#### Escolhas de linguagem e plataforma a serem usadas
 - HTML, CSS, Javascript, FLASK, Python e SQL Server
 
-* Página da tela inicial 
+#### Página da tela inicial 
 - index.html
 
 
