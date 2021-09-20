@@ -11,7 +11,7 @@ Um Serviço de Chat entre pares de usuários implementado em plataforma de nuvem
 #### AC01:
 
 #### Nome oficial do projeto: CHATPROG
-* Apresentação dos membros do grupo
+Apresentação dos membros do grupo
 
 - Beatriz Garcia
 - Douglas Costa
