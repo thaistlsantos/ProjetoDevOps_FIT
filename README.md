@@ -27,7 +27,7 @@ https://github.com/thaistlsantos/ProjetoDevOps_FIT
 - HTML, CSS, Javascript, FLASK, Python e SQL Server
 
 #### Página da tela inicial 
-- index.html
+Arquivo: index.html
 
 
 
