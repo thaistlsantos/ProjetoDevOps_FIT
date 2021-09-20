@@ -44,9 +44,3 @@ Arquivo: index.html
 
 * Autenticação de usuários
 
-
-
-
-### Integrantes: 
-
-
