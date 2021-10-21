@@ -47,7 +47,7 @@ main {
   font-weight: bold;
 }
 
-.email{
+.email {
   margin-top: 40px;
   border: none;
   background-color: #f6f3f3;
@@ -74,10 +74,10 @@ main {
   align-items: center;
   border-radius: 10px;
   width: 280px;
-  height: 35px
+  height: 35px;
 }
 
-.button-entrar a{
+.button-entrar a {
   color: #ffffff;
   text-decoration: none;
 }
@@ -89,7 +89,7 @@ main {
 }
 
 .not-account {
-  color: rgb(160, 160, 160);
+  color: rgb(87, 86, 86);
 }
 
 .not-account a {
