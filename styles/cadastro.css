@@ -28,16 +28,24 @@ main {
   flex-direction: column;
 }
 
-.dados-login {
+.cadastro {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
-  width: 40%;
-  padding: 2rem 0;
-  border: 1px solid lightgray;
-  margin-top: 0.5rem;
-  border-radius: 1rem;
+  justify-content: center;
+  width: 20%;
+  height: 100vh;
+}
+
+.dados {
+    border: 1px solid lightgray;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    padding: 50px;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .palavra-devchat {
@@ -45,28 +53,28 @@ main {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 50px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.email{
-  margin-top: 40px;
+.frase-cadastro {
+    padding: 10px;
+    color: rgb(87, 86, 86);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.campos {
   border: none;
   background-color: #f6f3f3;
   padding: 10px;
   border-radius: 10px;
   width: 280px;
-}
-
-.senha {
   margin-top: 10px;
-  border: none;
-  background-color: #f6f3f3;
-  padding: 10px;
-  border-radius: 10px;
-  width: 280px;
 }
 
-.button-entrar {
-  margin-top: 20px;
+.button-cadastrar {
   border: none;
   background-color: #3bb397;
   display: flex;
@@ -74,25 +82,17 @@ main {
   align-items: center;
   border-radius: 10px;
   width: 280px;
-  height: 35px
+  height: 35px;
+  margin-top: 30px;
 }
 
-.button-entrar a{
+.button-cadastrar a {
   color: #ffffff;
   text-decoration: none;
 }
 
-.esqueci-senha {
-  margin-top: 30px;
+.termos {
   color: rgb(160, 160, 160);
-  text-decoration: none;
-}
-
-.not-account {
-  color: rgb(160, 160, 160);
-}
-
-.not-account a {
-  color: #3bb397;
-  text-decoration: none;
+  font-size: 12px;
+  margin-top: 25px;
 }
