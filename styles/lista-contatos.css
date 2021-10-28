@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: nome;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tela-lista-contatos {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 15%;
+  height: 60%;
+}
+
+.container-contatos {
+  border: 1px solid lightgray;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  padding: 50px;
+  width: 130%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  color: #3bb397;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.button-name {
+    color: black;
+    border: none;
+    background-color: rgb(241, 239, 239);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 280px;
+    height: 35px;
+    margin-top: 20px;
+  }
