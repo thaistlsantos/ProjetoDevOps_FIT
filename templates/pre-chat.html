@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="../static/prechat.css">
+  <link rel="stylesheet" href="../static/bootstrap.min.css">
+  <title>CodersChat</title>
+</head>
+<body class="text-center">
+  <form class="form-signin" action="{{url_for('chat')}}" method="post">
+    <p class="palavra-devchat">DevChat</p>
+    <input type="text" name="username" id="username" class="form-control" placeholder="Nome ou apelido" required autofocus><br>
+    <input type="text" name="room" id="room" class="form-control" placeholder="Sala" required><br>
+    <button class="button-entrar" value="submit">Começar a conversar</button>
+    <!-- <button class="btn btn-lg btn-primary btn-block" value="submit">Começar a conversar</button> -->
+  </form>
+  
+</body>
+</html>

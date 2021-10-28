@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="insta.ico.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/cadastro.css">
+    <link rel="stylesheet" href="../static/cadastro.css">
     <title>DevChat</title>
 </head>
 <body>
     <aside>
-        <img src="logoDevChat" alt="">
+        <!-- <img src="../static/imgs/headset.png" alt="teste"> -->
     </aside>
     <main class="cadastro">
         <div class="dados">
@@ -20,7 +20,7 @@
             <input class="campos" type="email" placeholder="Email">
             <input class="campos" type="password" placeholder="Senha" required>
             <button class="button-cadastrar"><a href="">Cadastre-se</a></button>
-            <button class="button-voltar"><a href="home.html">Voltar</a></button>
+            <button class="button-voltar"><a href="{{ url_for('index') }}">Voltar</a></button>
             <p class="termos"> Ao se cadastrar, você concorda com nossos Termos,<br> Política de Dados e Política de Cookies.</p>
         </div>
     </main>
