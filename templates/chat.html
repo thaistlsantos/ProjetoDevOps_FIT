@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="../static/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/chat.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    var socket = io('http://localhost:5000');
+    $(document).ready(function(){
+      socket = io.connect('http://' + document.domain + ':' + location.port + '/chat')
+      socket.on('connect', function() {
+        socket.emit('join', {});
+      });
+      socket.on('status', function(data) {
+        $('#chat').val($('#chat').val() + '<' + data.msg + '>\n');
+        $('#chat').scrollTop($('#chat')[0].scrollHeight);
+      });
+      socket.on('message', function(data) {
+        $('#chat').val($('#chat').val() + data.msg + '\n');
+        $('#chat').scrollTop($('#chat')[0].scrollHeight);
+      });
+      $('#send').click(function(e) {
+        text = $('#text').val();
+        $('#text').val('');
+        socket.emit('text', {msg: text});
+      });
+    });
+    function leave_room() {
+      socket.emit('left', {}, function() {
+        socket.disconnect();
+        // go back to the login page
+        window.location.href = "{{ url_for('index') }}";
+      });
+    }
+  </script>
+  <title>CodersChat</title>
+</head>
+
+<body class="text-center">
+  <div class="chatwindow">
+    <p class="palavra-devchat">DevChat</p>
+    <br>
+    <p class="subtitle">Sala: {{session['room']}}</p>
+    <br>
+    <textarea name="chat" id="chat" cols="70" rows="10" placeholder="Nenhuma mensagem ainda. Comece agora.."></textarea>
+    <br><br>
+    <input type="text" id="text" size="60" placeholder="Escreva sua mensagem aqui.."/>
+    <button type="button" id="send" class="button-entrar">Enviar</button>
+    <!-- <button type="button" id="send" class="btn btn-success">Enviar</button> -->
+    <br><br>
+    <button type="button" class="btn btn-danger" onclick=leave_room()>Sair da sala</button>
+  </div>
+</body>
+</html>

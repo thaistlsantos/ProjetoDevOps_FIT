@@ -1,0 +1,51 @@
+html, body {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#chat {
+  height: 100%;
+  width: 50%;
+  border: 2px solid rgb(173, 173, 173);
+  font-size: 15px;
+}
+
+input {
+  align-items: center;
+  width: 45%;
+  border: 1px solid #ddd;
+  height: 41px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.palavra-devchat {
+  color: #3bb397;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.subtitle{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.button-entrar {
+  margin-left: 0.3%;
+  background-color: #3bb397;
+  border-radius: 0.2rem;
+  border-color: black;
+  justify-content: center;
+  align-items: center;
+  width: 5.5rem;
+  height: 2.5rem;
+  color: whitesmoke;
+  border: none;
+}
