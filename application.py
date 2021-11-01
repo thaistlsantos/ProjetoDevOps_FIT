@@ -2,16 +2,16 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_socketio import SocketIO, join_room, leave_room, emit
 from flask_session import Session
 
-app = Flask(__name__)
-app.debug = True
-app.config['SECRET_TYPE'] = 'secret'
-app.config['SESSION_TYPE'] = 'filesystem'
+application = Flask(__name__)
+application.debug = True
+application.config['SECRET_TYPE'] = 'secret'
+application.config['SESSION_TYPE'] = 'filesystem'
 
-Session(app)
-socketio = SocketIO(app, manage_session=False)
+Session(application)
+socketio = SocketIO(application, manage_session=False)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
@@ -21,12 +21,12 @@ def index():
 #     return render_template('index.html')
 
 
-@app.route('/prechat', methods=['GET', 'POST'])
+@application.route('/prechat', methods=['GET', 'POST'])
 def pre_chat():
     return render_template('pre-chat.html')
 
 
-@app.route('/chat', methods=['GET', 'POST'])
+@application.route('/chat', methods=['GET', 'POST'])
 def chat():
     if(request.method == 'POST'):
         username = request.form['username']
@@ -64,15 +64,15 @@ def left(message):
     emit('status', {'msg': username + ' saiu da sala,'}, room=room)
 
 
-@app.route('/cadastro', methods=['GET', 'POST'])
+@application.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
     return render_template('cadastro.html')
 
 
-@app.route('/resetpass', methods=['GET', 'POST'])
+@application.route('/resetpass', methods=['GET', 'POST'])
 def resetpass():
     return render_template('password.html')
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(application)
