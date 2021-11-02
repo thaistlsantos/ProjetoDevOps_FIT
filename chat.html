@@ -7,6 +7,40 @@
     <title>DevChat</title>
 </head>
     <body id="pagina-chat">
+        <script>
+            function enviaMsg() {
+            const xhttp = new XMLHttpRequest();
+            
+            xhttp.onreadystatechange = function() {
+                console.log("readyState:" + this.readyState);
+                console.log("status:" + this.status);
+            
+                if (this.readyState == 4 && this.status == 200) {
+                imprimeResposta(this);
+                }
+            };
+            
+            xhttp.onload = function() {
+                document.getElementById("resposta").innerHTML = this.responseText;
+            };
+            
+            document.getElementById("saida").innerHTML = "mensagem enviada";
+            var data = {
+            "to":document.getElementById("to").value,
+            "msg":document.getElementById("msg").value,
+            "from":document.getElementById("from").value};
+            var jsondata = JSON.stringify(data);
+            var url = "https://hafkg93ds7.execute-api.us-east-1.amazonaws.com/teste";
+            xhttp.open("POST", url);
+            xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhttp.send(jsondata);
+            }
+            
+            function imprimeResposta(xml) {
+            var xmlDoc = xml.responseXML;
+            document.getElementById("resposta").innerHTML = xmlDoc;
+            }
+        </script>
         <div class="grid">
             <!-- App background -->
             <div class="top"></div>
@@ -17,7 +51,8 @@
                     <!-- Sidebar header -->
                     <div class="sidebar-header">
                         <img src="img/logoDevChat.png">
-                        <label class="palavra-devchat">DevChat</label>
+                        <input type="text" id="from" Name="from">Nome do Remetente</input>
+                        <span class="palavra-devchat">DevChat</span>
                         <!--
                         <div class="sidebar-header-icons">
                             <img src="img/header-icons-1.png"/>
@@ -44,7 +79,7 @@
                         <div class="chat-window-header-left">
                             <img src="img/header-icons-1.png"/>
                             <div class="contact-name-and-status-container">
-                                <span class="chat-window-contant-name">NOME DO INTERLOCUTOR</span>
+                                <input type="text" class="chat-window-contant-name" id="to" Name="to">NOME DO INTERLOCUTOR</input>
                                 <span class="chat-window-contact-status">STATUS DO INTERLOCUTOR</span>
                             </div>
                         </div>
@@ -56,10 +91,8 @@
                     <!-- Chat window -->
                     <div class="chat-window">
                         <div class="sender">
-                            <span class="sender-message-tail">TESTE</span>
-                            <span class="sender-message-">MENSAGEM</span>
-                            <span class="message-time">00:00</span>
-                            <span class="message-status">ENVIADO</span>
+                            <span class="sender-message-tail" id="resposta">---------</span>
+                            <span id="saida"></span>
                         </div>
                     </div>
                     <!-- Type message bar -->
@@ -69,10 +102,12 @@
                             <img src="img/header-icons-2.png"/>
                         </div>
                         <div class="type-message-bar-center">
-                            <input type="text" id="msg" name="msg" size="100" MaxLength="160" placeholder="Digite uma mensagem">
+                            <input type="text" id="msg" Name="msg" Size="100" maxlength="50" placeholder="Digite uma mensagem">
                         </div>
                         <div class="type-message-bar-right">
-                            <button type="button" onclick="enviaMsg()"><img src="img/enviar.png"/></button>
+                            <button type="button" onclick="enviaMsg()">
+                                <img src="img/enviar.png"/>
+                            </button>
                         </div>
                     </div>
                 </div>
