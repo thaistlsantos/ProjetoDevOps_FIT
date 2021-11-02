@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/chat.css">
+    <title>DevChat</title>
+</head>
+    <body id="pagina-chat">
+        <script>
+
+            function enviaMsg() {
+              const xhttp = new XMLHttpRequest();
+            
+              xhttp.onreadystatechange = function() {
+                console.log("readyState:" + this.readyState);
+                console.log("status:" + this.status);
+            
+                if (this.readyState == 4 && this.status == 200) {
+                  imprimeResposta(this);
+                }
+              };
+            
+              xhttp.onload = function() {
+                document.getElementById("resposta").innerHTML = this.responseText;
+              };
+            
+              document.getElementById("saida").innerHTML = "mensagem enviada";
+              var data = {
+              "to":document.getElementById("to").value,
+              "msg":document.getElementById("msg").value,
+              "from":document.getElementById("from").value};
+              var jsondata = JSON.stringify(data);
+              var url = "https://hafkg93ds7.execute-api.us-east-1.amazonaws.com/teste";
+              xhttp.open("POST", url);
+              xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+              xhttp.send(jsondata);
+            }
+            
+            function imprimeResposta(xml) {
+              var xmlDoc = xml.responseXML;
+              document.getElementById("resposta").innerHTML = xmlDoc;
+            }
+        </script>
+        <div class="grid">
+            <!-- App background -->
+            <div class="top"></div>
+            <div class="bottom"></div>
+            <!-- App -->
+            <div class="app">
+                <div class="sidebar">
+                    <!-- Sidebar header -->
+                    <div class="sidebar-header">
+                        <img src="img/logoDevChat.png">
+                        <label class="palavra-devchat">DevChat</label>
+                        <!--
+                        <div class="sidebar-header-icons">
+                            <img src="img/header-icons-1.png"/>
+                            <img src="img/header-icons-2.png"/>
+                            <img src="img/header-icons-3.png"/>
+                        </div>                        
+                        -->
+                    </div>
+                    <!-- Sidebar search chat -->
+                    <div class="search-chat">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Pesquisar uma conversa"/>
+                        </div>
+                    </div>
+                    <!-- Chats -->
+                    <div class="chats">
+                        <!-- All chats -->
+                        AQUI FICARÃO OS INTERLOCUTORES
+                    </div>
+                </div>
+                <div class="main">
+                    <!-- Main chat window header -->
+                    <div class="chat-window-header">
+                        <div class="chat-window-header-left">
+                            <img src="img/header-icons-1.png"/>
+                            <div class="contact-name-and-status-container">
+                                <span class="chat-window-contant-name" id="to" Name="to" >NOME DO INTERLOCUTOR</span>
+                                <span class="chat-window-contact-status">STATUS DO INTERLOCUTOR</span>
+                            </div>
+                        </div>
+                        <div class="chat-window-header-right">
+                            <img src="img/header-icons-1.png"/>
+                            <img src="img/header-icons-2.png"/>
+                        </div>                        
+                    </div>
+                    <!-- Chat window -->
+                    <div class="chat-window">
+                        <div class="sender">
+                            <span class="sender-message-tail">TESTE</span>
+                            <span class="sender-message-">MENSAGEM</span>
+                            <span class="message-time">00:00</span>
+                            <span class="message-status">ENVIADO</span>
+                        </div>
+                    </div>
+                    <!-- Type message bar -->
+                    <div class="type-message-bar">
+                        <div class="type-message-bar-left">
+                            <img src="img/header-icons-1.png"/>
+                            <img src="img/header-icons-2.png"/>
+                        </div>
+                        <div class="type-message-bar-center">
+                            <input type="text" id="msg" Name="msg" Size="100" maxlength="50" placeholder="Digite uma mensagem">
+                        </div>
+                        <div class="type-message-bar-right">
+                            <button type="button" onclick="enviaMsg()">
+                                <img src="img/enviar.png"/>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
