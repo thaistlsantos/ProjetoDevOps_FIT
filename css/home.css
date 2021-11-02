@@ -8,10 +8,13 @@
 }
 
 body {
+  /* background: #FFFFFF url("../img/logoDevChat.png") no-repeat left top fixed;
+  background-size: 50%;
+  */
   display: flex;
   align-items: stretch;
   height: 100vh;
-  margin: 0;
+  margin: auto;
 }
 
 aside img {
@@ -21,6 +24,8 @@ aside img {
 
 main {
   flex: 7;
+  min-width: 400px;
+  min-height: 500px;
   padding: 0 32px;
   display: flex;
   align-items: center;
@@ -33,7 +38,8 @@ main {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  width: 40%;
+  min-width: 320px;
+  max-width: 800px;
   padding: 2rem 0;
   border: 1px solid lightgray;
   margin-top: 0.5rem;
