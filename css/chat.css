@@ -323,3 +323,11 @@ input[type="range"] {
     border-radius: 2rem;
     font-family: "Segoe UI";
 }
+
+.type-message-bar-center input::-webkit-input-placeholder {
+    font-size: 1.5rem;
+}
+
+.type-message-bar-right {
+    margin-left: 2rem;
+}
