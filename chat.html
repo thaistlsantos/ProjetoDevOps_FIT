@@ -8,7 +8,6 @@
 </head>
     <body id="pagina-chat">
         <script>
-
             function enviaMsg() {
               const xhttp = new XMLHttpRequest();
             
@@ -52,7 +51,7 @@
                     <!-- Sidebar header -->
                     <div class="sidebar-header">
                         <img src="img/logoDevChat.png">
-                        <span id="from" Name="from">Nome do Remetente</span>
+                        <input type="text" id="from" Name="from">Nome do Remetente</input>
                         <span class="palavra-devchat">DevChat</span>
                         <!--
                         <div class="sidebar-header-icons">
@@ -80,7 +79,7 @@
                         <div class="chat-window-header-left">
                             <img src="img/header-icons-1.png"/>
                             <div class="contact-name-and-status-container">
-                                <span class="chat-window-contant-name" id="to" Name="to" >NOME DO INTERLOCUTOR</span>
+                                <input type="text" class="chat-window-contant-name" id="to" Name="to" >NOME DO INTERLOCUTOR</input>
                                 <span class="chat-window-contact-status">STATUS DO INTERLOCUTOR</span>
                             </div>
                         </div>
@@ -92,10 +91,8 @@
                     <!-- Chat window -->
                     <div class="chat-window">
                         <div class="sender">
-                            <span class="sender-message-tail">TESTE</span>
-                            <span class="sender-message-">MENSAGEM</span>
-                            <span class="message-time">00:00</span>
-                            <span class="message-status">ENVIADO</span>
+                            <span class="sender-message-tail" id="resposta">---------</span>
+                            <span id="saida"></span>
                         </div>
                     </div>
                     <!-- Type message bar -->
