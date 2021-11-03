@@ -26,9 +26,9 @@
             
             document.getElementById("saida").innerHTML = "mensagem enviada";
             var data = {
-            "to":document.getElementById("to").value,
-            "msg":document.getElementById("msg").value,
-            "from":document.getElementById("from").value};
+                "from":document.getElementById("from").value,
+                "to":document.getElementById("to").value,
+                "msg":document.getElementById("msg").value};
             var jsondata = JSON.stringify(data);
             var url = "https://hafkg93ds7.execute-api.us-east-1.amazonaws.com/teste";
             xhttp.open("POST", url);
