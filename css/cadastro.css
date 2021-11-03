@@ -96,3 +96,12 @@ main {
   font-size: 12px;
   margin-top: 25px;
 }
+
+.voltar-login {
+  text-decoration: none;
+  color: #3bb397;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  margin-top: 25px;
+}
+
