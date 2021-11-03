@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+body {
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+  margin: 0;
+}
+
+aside img {
+  height: 100vh;
+  align-self: center;
+}
+
+main {
+  flex: 7;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 100vh;
+}
+
+.dados {
+    border: 1px solid lightgray;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    padding: 0.5%;
+    width: 30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1%;
+  }
+
+.palavra-devchat {
+  margin-top: 13px;
+  color: #3bb397;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.frase-cadastro {
+    padding: 10px;
+    color: rgb(87, 86, 86);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.campos {
+  border: none;
+  background-color: #f6f3f3;
+  padding: 10px;
+  border-radius: 10px;
+  width: 280px;
+  margin-top: 10px;
+}
+
+.button-cadastrar {
+  
+  background-color: #3bb397;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 280px;
+  height: 35px;
+  margin-top: 20px;
+}
+
+.button-cadastrar a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.button-voltar {
+background-color: #ffffff;
+border-radius: 10px;
+border-color: lightgray;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 280px;
+height: 35px;
+margin-top: 10px
+
+}
+
+.button-voltar a {
+  color: #3bb397;
+  text-decoration: none;
+}
+
+.termos {
+  color: rgb(160, 160, 160);
+  font-size: 10px;
+  margin-top: 10%;
+  text-align: justify;
+}
