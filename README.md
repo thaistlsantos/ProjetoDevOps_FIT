@@ -10,7 +10,7 @@ Um Serviço de Chat entre pares de usuários implementado em plataforma de nuvem
 
 #### AC01:
 
-#### Nome oficial do projeto: CHATPROG
+#### Nome oficial do projeto: DevChat
 Apresentação dos membros do grupo
 
 - Beatriz Garcia
@@ -24,10 +24,10 @@ Apresentação dos membros do grupo
 https://github.com/thaistlsantos/ProjetoDevOps_FIT
 
 #### Escolhas de linguagem e plataforma a serem usadas
-- HTML, CSS, Javascript, FLASK, Python e SQL Server
+- HTML, CSS, Javascript, FLASK e Python.
 
 #### Página da tela inicial 
-Arquivo: index.html
+Arquivo: home.html
 
 
 
