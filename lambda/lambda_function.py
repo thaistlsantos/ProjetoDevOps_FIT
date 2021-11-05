@@ -29,7 +29,6 @@ def lambda_handler(event, context):
                 'mensagem': mensagem
             }
         )
-        
         return {
             'statusCode': 200,
             'body': json.dumps('Mensagem inserida no Banco de Dados!')
