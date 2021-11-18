@@ -50,11 +50,11 @@
 
             //Pega as mensagens de usr1 para usr2 e coloca no painel da esquerda
             GetMsg(document.getElementById("from"), document.getElementById("to"),
-                document.getElementById("conversa"));
+                document.getElementById("from-to"));
 
             //Pega as mensagens de usr1 para usr2 e coloca no painel da direita
-            /* GetMsg(document.getElementById("to"), document.getElementById("from"),
-                document.getElementById("conversa")); */
+            GetMsg(document.getElementById("to"), document.getElementById("from"),
+                document.getElementById("to-from"));
 
             document.getElementById("msg").value = "";
             document.getElementById("msg").focus(); // Coloca o foco na entrada
@@ -98,7 +98,7 @@
                         <div class="chat-window-header-left">
                             <img src="img/header-icons-1.png"/>
                             <div class="contact-name-and-status-container">
-                                <input type="text" class="chat-window-contant-name" id="to" Name="to">NOME DO INTERLOCUTOR</input>
+                                <input type="text" class="chat-window-contant-name" id="to" Name="to">Nome do Destinatário</input>
                                 <span class="chat-window-contact-status">STATUS DO INTERLOCUTOR</span>
                             </div>
                         </div>
@@ -109,7 +109,16 @@
                     </div>
                     <!-- Chat window -->
                     <div class="chat-window">
-                        <textarea Name="conversa" id="conversa" cols="100" rows="40"></textarea>
+                        <table>
+                            <tr>
+                                <td><span>Remetente</span></td>
+                                <td><span>Destinatário</span></td>
+                            </tr>
+                            <tr>
+                                <td><textarea Name="from-to" id="from-to" cols="50" rows="40"></textarea></td>
+                                <td><textarea Name="to-from" id="to-from" cols="50" rows="40"></textarea></td>
+                            </tr>
+                        </table>
                     </div>
                     <!-- Type message bar -->
                     <div class="type-message-bar">
