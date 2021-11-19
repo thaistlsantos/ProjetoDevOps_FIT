@@ -8,38 +8,57 @@
 </head>
     <body id="pagina-chat">
         <script>
-            function enviaMsg() {
+            function GetMsg(u1, u2, painel_de_saida) {
             const xhttp = new XMLHttpRequest();
-            
-            xhttp.onreadystatechange = function() {
-                console.log("readyState:" + this.readyState);
-                console.log("status:" + this.status);
-            
-                if (this.readyState == 4 && this.status == 200) {
-                imprimeResposta(this);
+
+            //Ao executar uma solicitação xhttp.open("GET"..)..xhttp.send() assincrona,
+            //deve-se especificar uma função de callback, que é a seguinte:
+            xhttp.onreadystatechange = function() { //Function chamada ao receber resposta
+                if( this.readyState === XMLHttpRequest.DONE && this.status === 200 ) {
+                resposta = JSON.parse(this.responseText);
+                mensagens = JSON.parse(resposta["body"]);
+
+                painel_de_saida.value = "";
+                for( i = 0; i < mensagens.length; i++ )
+                    painel_de_saida.value += '(' + String(i + 1) + ') ' +
+                    mensagens[i]["data_hora"] + '\n' + mensagens[i]["msg"] + '\n\n';
                 }
-            };
-            
-            xhttp.onload = function() {
-                document.getElementById("resposta").innerHTML = this.responseText;
-            };
-            
-            document.getElementById("saida").innerHTML = "mensagem enviada";
-            var data = {
-            "to":document.getElementById("to").value,
-            "msg":document.getElementById("msg").value,
-            "from":document.getElementById("from").value};
-            var jsondata = JSON.stringify(data);
-            var url = "https://hafkg93ds7.execute-api.us-east-1.amazonaws.com/teste";
+            }
+
+            /*-------------------------------------------------------------------------*/
+
+            //Na solicitação GET, os dados vão no cabeçalho (header)
+            var consulta = "?from=" + u1.value + "&to=" + u2.value
+            xhttp.open("GET", url + consulta); //GET: a consulta vai no cabeçalho com a URL
+            xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhttp.send();
+            }  // Fim de GetMsg
+
+            /*---------------------------------------------------------------------------*/
+
+            function PostMsg() {
+            //Na solicitação POST, os dados vão no corpo (body).
+            var corpo = JSON.stringify( // Passa para JSON em texto.
+                { "from": document.getElementById("from").value, // Usuario Local
+                "to"  : document.getElementById("to").value, // Usuario Remoto
+                "msg" : document.getElementById("msg").value } );
+
+            const xhttp = new XMLHttpRequest();
             xhttp.open("POST", url);
             xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhttp.send(jsondata);
-            }
-            
-            function imprimeResposta(xml) {
-            var xmlDoc = xml.responseXML;
-            document.getElementById("resposta").innerHTML = xmlDoc;
-            }
+            xhttp.send(corpo);
+
+            //Pega as mensagens de usr1 para usr2 e coloca no painel da esquerda
+            GetMsg(document.getElementById("from"), document.getElementById("to"),
+                document.getElementById("from-to"));
+
+            //Pega as mensagens de usr1 para usr2 e coloca no painel da direita
+            GetMsg(document.getElementById("to"), document.getElementById("from"),
+                document.getElementById("to-from"));
+
+            document.getElementById("msg").value = "";
+            document.getElementById("msg").focus(); // Coloca o foco na entrada
+            }  // Fim de PostMsg
         </script>
         <div class="grid">
             <!-- App background -->
@@ -79,7 +98,7 @@
                         <div class="chat-window-header-left">
                             <img src="img/header-icons-1.png"/>
                             <div class="contact-name-and-status-container">
-                                <input type="text" class="chat-window-contant-name" id="to" Name="to">NOME DO INTERLOCUTOR</input>
+                                <input type="text" class="chat-window-contant-name" id="to" Name="to">Nome do Destinatário</input>
                                 <span class="chat-window-contact-status">STATUS DO INTERLOCUTOR</span>
                             </div>
                         </div>
@@ -90,10 +109,16 @@
                     </div>
                     <!-- Chat window -->
                     <div class="chat-window">
-                        <div class="sender">
-                            <span class="sender-message-tail" id="resposta">---------</span>
-                            <span id="saida"></span>
-                        </div>
+                        <table class="chat-table">
+                            <tr>
+                                <td><span>Remetente</span></td>
+                                <td><span>Destinatário</span></td>
+                            </tr>
+                            <tr>
+                                <td><textarea Name="from-to" id="from-to" cols="50" rows="40"></textarea></td>
+                                <td><textarea Name="to-from" id="to-from" cols="50" rows="40"></textarea></td>
+                            </tr>
+                        </table>
                     </div>
                     <!-- Type message bar -->
                     <div class="type-message-bar">
@@ -105,7 +130,7 @@
                             <input type="text" id="msg" Name="msg" Size="100" maxlength="50" placeholder="Digite uma mensagem">
                         </div>
                         <div class="type-message-bar-right">
-                            <button type="button" onclick="enviaMsg()">
+                            <button type="button" onclick="PostMsg()">
                                 <img src="img/enviar.png"/>
                             </button>
                         </div>
@@ -113,5 +138,9 @@
                 </div>
             </div>
         </div>
+        <script>
+            // A URL abaixo deve ser configurada com o do API Gateway
+            url = "https://9xmvu986te.execute-api.us-east-1.amazonaws.com/DevChat";
+        </script>
     </body>
 </html>
